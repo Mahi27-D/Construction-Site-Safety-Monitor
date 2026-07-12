@@ -1,3 +1,4 @@
+from camera_config import CAMERA_SOURCE
 from flask import Flask, render_template, Response, jsonify, request, send_file
 from flask_socketio import SocketIO, emit
 import cv2
@@ -244,7 +245,7 @@ def start_stream():
         
         with stream_lock:
             if camera is None or not camera.isOpened():
-                camera = cv2.VideoCapture(0)
+                camera = cv2.VideoCapture(CAMERA_SOURCE)
                 camera.set(cv2.CAP_PROP_BUFFERSIZE, 1)
         
         streaming = True
