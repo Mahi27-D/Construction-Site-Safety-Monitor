@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPE Detection System</title>
+    <title>Construction Site Safety Monitor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -381,10 +381,10 @@
     </style> -->
 </head>
 <body>
-    <header>
+    <!-- <header>
         <div class="container">
             <h1>
-                <i class="fas fa-shield-alt"></i> PPE Detection System
+                <i class="fas fa-hard-hat"></i> Construction Site Safety Monitor
             </h1>
             <div class="nav-links">
                 <a href="/" class="active">Live Detection</a>
@@ -392,7 +392,82 @@
                 <a href="/settings">Settings</a>
             </div>
         </div>
+    </header> -->
+
+    <header class="top-header">
+        <div class="container header-content">
+
+            <div class="logo-section">
+                <i class="fas fa-hard-hat logo-icon"></i>
+
+                <div>
+                    <h1>Construction Site Safety Monitor</h1>
+                    <p>AI Powered PPE Compliance Monitoring</p>
+                </div>
+            </div>
+
+            <div class="header-right">
+
+                <div class="live-badge">
+                    <span class="live-dot"></span>
+                    LIVE
+                </div>
+
+                <nav class="nav-links">
+                    <a href="/" class="active">Dashboard</a>
+                    <a href="/review">Review</a>
+                    <a href="/settings">Settings</a>
+                </nav>
+
+            </div>
+
+        </div>
     </header>
+
+    <section class="hero-section">
+
+        <div class="container hero-content">
+
+            <div class="hero-left">
+
+                <h2>AI-Powered PPE Detection<br>for Construction Site Safety</h2>
+
+                <p>
+                    Monitor workers in real time using AI-based PPE detection.
+                    Detect missing helmets and safety vests instantly and improve workplace safety.
+                </p>
+
+                <div class="hero-features">
+
+                    <span>🦺 Helmet Detection</span>
+                    <span>🦺 Safety Vest Detection</span>
+                    <span>📹 Live Monitoring</span>
+                    <span>🚨 Instant Alerts</span>
+
+                </div>
+
+                <button class="btn btn-primary hero-btn"
+                    onclick="document.querySelector('.video-container').scrollIntoView({behavior:'smooth'});">
+
+                    Start Monitoring
+
+                </button>
+
+            </div>
+
+            <div class="hero-right">
+
+                <img
+                    src="{{ url_for('static', filename='images/construction-hero.png') }}"
+                    alt="Construction Safety"
+                    class="hero-image">
+
+            </div>
+
+        </div>
+
+    </section>
+
 
     <div class="container">
         <div class="grid">
@@ -431,8 +506,36 @@
 
             <div>
                 <div class="card">
-                    <div class="card-title">Detection Statistics</div>
+                    <!-- <div class="card-title">Detection Statistics</div> -->
+                    
+                    <div class="card-title">
+                        <i class="fas fa-chart-line"></i> Live Analytics
+                    </div>
+                    
                     <div class="stats-grid">
+
+                        <div class="stat-card">
+                            <i class="fas fa-users stat-icon"></i>
+                            <div class="stat-value" id="totalDetections">0</div>
+                            <div class="stat-label">Workers Detected</div>
+                        </div>
+
+                        <div class="stat-card danger">
+                            <i class="fas fa-user-shield stat-icon"></i>
+                            <div class="stat-value" id="nonCompliantCount">0</div>
+                            <div class="stat-label">Safety Violations</div>
+                        </div>
+
+                        <div class="stat-card warning">
+                            <i class="fas fa-bell stat-icon"></i>
+                            <div class="stat-value" id="totalAlerts">0</div>
+                            <div class="stat-label">Alerts Generated</div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- <div class="stats-grid">
                         <div class="stat-card danger">
                             <div class="stat-value" id="totalDetections">0</div>
                             <div class="stat-label">Total Instances</div>
@@ -445,7 +548,7 @@
                             <div class="stat-value" id="totalAlerts">0</div>
                             <div class="stat-label">Total Alerts</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="card" style="margin-top: 24px;">
