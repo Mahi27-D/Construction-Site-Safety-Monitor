@@ -1,3 +1,4 @@
+from report_generator import generate_pdf
 from camera_config import CAMERA_SOURCE
 from flask import Flask, render_template, Response, jsonify, request, send_file
 from flask_socketio import SocketIO, emit
@@ -341,6 +342,15 @@ def delete_instance(instance_id):
         return jsonify({'error': 'Failed to delete instance'}), 500
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+#------------------------------------------------
+
+@app.route('/test_pdf')
+def test_pdf():
+    pdf_path = generate_pdf()
+    return f"PDF generated successfully at: {pdf_path}"
+
+#------------------------------------------------
 
 if __name__ == '__main__':
     try:
